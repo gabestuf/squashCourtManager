@@ -2,12 +2,11 @@ import { useState } from "react";
 import AddToQueue from "./AddToQueue";
 import QueueList from "./QueueList";
 
-const Queue = () => {
-  const [queue, setQueue] = useState([]);
+const Queue = (props) => {
   return (
     <div>
-      <AddToQueue queue={queue} setQueue={setQueue} />
-      <QueueList queue={queue} />
+      <AddToQueue queue={props.queue} setQueue={props.setQueue} />
+      <QueueList queue={props.queue} />
     </div>
   );
 };

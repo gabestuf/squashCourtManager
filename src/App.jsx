@@ -2,22 +2,22 @@ import { useState, Fragment, useEffect } from "react";
 import Court from "./components/Court";
 import Queue from "./components/Queue";
 import "./App.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import CourtManager from "./components/CourtManager";
+import QueueList from "./components/QueueList";
 
 function App() {
-  const [data, setData] = useState({
-    x1: 5,
-    x2: 6,
-    y1: 4,
-    y2: 3,
-  });
+  const [queue, setQueue] = useState([]);
 
   return (
     <Fragment>
+      <Header />
       <main>
         <div className="court-container">
-          <Court data={data} setData={setData} />
-          <Queue />
+          <CourtManager queue={queue} setQueue={setQueue} />
         </div>
+        <Queue queue={queue} setQueue={setQueue} />
       </main>
     </Fragment>
   );

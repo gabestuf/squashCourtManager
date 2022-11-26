@@ -1,5 +1,5 @@
 import "./Court.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Court = (props) => {
   const [data, setData] = useState([
@@ -7,6 +7,10 @@ const Court = (props) => {
     { p1: 0, p2: 0 },
     { p1: 0, p2: 0 },
   ]);
+
+  useEffect(() => {
+    console.log(props.status);
+  }, [props.status]);
 
   return (
     <div className="court">
@@ -27,19 +31,19 @@ const Court = (props) => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Player 1</th>
-              <th>Player 2</th>
+              <th>{props.status.p1}</th>
+              <th>{props.status.p2}</th>
             </tr>
           </thead>
           <tbody>
             {data.map((row, index) => (
               <tr key={index}>
                 <td>{index}</td>
-                <td>
-                  <input type="number" />
+                <td className="td">
+                  <input type="number" defaultValue={row.p1} />
                 </td>
-                <td>
-                  <input type="number" />
+                <td className="td">
+                  <input type="number" defaultValue={row.p2} />
                 </td>
               </tr>
             ))}

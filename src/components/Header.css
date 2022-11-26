@@ -1,0 +1,11 @@
+header {
+    width: 100vw;
+    background-color: var(--main-primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3ch 0;
+}
+header h1 {
+    color: rgb(224, 211, 211);
+}
