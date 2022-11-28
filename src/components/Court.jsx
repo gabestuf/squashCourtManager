@@ -1,4 +1,4 @@
-import "./Court.css";
+import "./../css/Court.css";
 import { useState, useEffect } from "react";
 
 const Court = (props) => {
@@ -20,11 +20,20 @@ const Court = (props) => {
           const newData = [];
           for (let j = 0; j < data.length; j++) {
             const i = j * 2;
+            if (e.target[i].value < 0 || e.target[i + 1].value < 0) {
+              alert("Invalid Scores");
+              return;
+            }
+            if (e.target[i].value < 11 && e.target[i + 1].value < 11) {
+              alert("No winner?");
+              return;
+            }
             newData[j] = {
               p1: parseInt(e.target[i].value),
               p2: parseInt(e.target[i + 1].value),
             };
           }
+          console.log(newData);
         }}
       >
         <table>

@@ -1,7 +1,7 @@
 import { useState, Fragment, useEffect } from "react";
 import Court from "./components/Court";
 import Queue from "./components/Queue";
-import "./App.css";
+import "./css/App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CourtManager from "./components/CourtManager";
