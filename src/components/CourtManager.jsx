@@ -55,9 +55,9 @@ const CourtManager = (props) => {
 
   return (
     <Fragment>
-      <Court status={c1Status} setStatus={setC1Status} />
-      <Court status={c2Status} setStatus={setC2Status} />
-      <Court status={c3Status} setStatus={setC3Status} />
+      <Court status={c1Status} setStatus={setC1Status} id={1} />
+      <Court status={c2Status} setStatus={setC2Status} id={2} />
+      <Court status={c3Status} setStatus={setC3Status} id={3} />
     </Fragment>
   );
 };
