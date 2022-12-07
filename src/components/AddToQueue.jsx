@@ -1,10 +1,15 @@
+import "./../css/Queue.css";
+
 const AddToQueue = (props) => {
   return (
     <form
+      className="addToQueueForm"
       onSubmit={(e) => {
         e.preventDefault();
         const p1Name = e.target[0].value; // Player 1 Name
         const p2Name = e.target[1].value; // Player 2 Name
+        e.target[0].value = "";
+        e.target[1].value = "";
 
         if (!(p1Name && p2Name)) {
           // check if names are empty
@@ -14,8 +19,8 @@ const AddToQueue = (props) => {
           props.setQueue([
             ...props.queue,
             {
-              p1: e.target[0].value,
-              p2: e.target[1].value,
+              p1: p1Name,
+              p2: p2Name,
             },
           ]);
         }

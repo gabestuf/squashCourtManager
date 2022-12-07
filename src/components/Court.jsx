@@ -1,56 +1,71 @@
-import "./Court.css";
-import { useState, useEffect } from "react";
+import "./../css/Court.css";
+import { useState } from "react";
 
 const Court = (props) => {
-  const [data, setData] = useState([
-    { p1: 5, p2: 11 },
-    { p1: 0, p2: 0 },
-    { p1: 0, p2: 0 },
-  ]);
+  const [data, setData] = useState({ games: 3 });
 
-  useEffect(() => {
-    console.log(props.status);
-  }, [props.status]);
+  const onSubmitCourtForm = (e) => {
+    e.preventDefault();
+    const scores = [];
+    for (let j = 0; j < data.games; j++) {
+      const i = j * 2;
+      //set scores
+      scores[j] = {
+        p1: parseInt(e.target[i].value),
+        p2: parseInt(e.target[i + 1].value),
+      };
+
+      // reset scores
+      e.target[i].value = null;
+      e.target[i + 1].value = null;
+    }
+    console.log("Game: " + props.status.p1 + " vs " + props.status.p2);
+    console.log("scores:");
+    console.log(scores);
+    //reset court status
+    props.setStatus({ busy: false, p1: "Empty", p2: "Empty" });
+  };
 
   return (
-    <div className="court">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          const newData = [];
-          for (let j = 0; j < data.length; j++) {
-            const i = j * 2;
-            newData[j] = {
-              p1: parseInt(e.target[i].value),
-              p2: parseInt(e.target[i + 1].value),
-            };
-          }
-        }}
-      >
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>{props.status.p1}</th>
-              <th>{props.status.p2}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((row, index) => (
-              <tr key={index}>
-                <td>{index}</td>
-                <td className="td">
-                  <input type="number" defaultValue={row.p1} />
-                </td>
-                <td className="td">
-                  <input type="number" defaultValue={row.p2} />
-                </td>
+    <div className="court" style={{ backgroundColor: props.status.busy ? "green" : "var(--main-primary-color)" }}>
+      {!props.status.busy ? (
+        <div>
+          <h3>Empty</h3>
+          <p>Add names to queue to wait for a court</p>
+        </div>
+      ) : (
+        <form onSubmit={(e) => onSubmitCourtForm(e)}>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>{props.status.p1}</th>
+                <th>{props.status.p2}</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        <button>Done</button>
-      </form>
+            </thead>
+            <tbody>
+              {(() => {
+                const rows = [];
+                for (let index = 0; index < data.games; index++) {
+                  rows.push(
+                    <tr key={index}>
+                      <td>{index}</td>
+                      <td className="td">
+                        <input type="number" defaultValue={undefined} min={0} required />
+                      </td>
+                      <td className="td">
+                        <input type="number" defaultValue={undefined} min={0} required />
+                      </td>
+                    </tr>
+                  );
+                }
+                return rows;
+              })().map((row) => row)}
+            </tbody>
+          </table>
+          <button className="doneBtn">Done</button>
+        </form>
+      )}
     </div>
   );
 };

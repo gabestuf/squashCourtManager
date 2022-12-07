@@ -1,9 +1,9 @@
-import "./Footer.css";
+import "./../css/Footer.css";
 
 const Footer = () => {
   return (
-    <footer>
-      <p>hello</p>
+    <footer className="mainFooter">
+      <p>Made by Gabe</p>
     </footer>
   );
 };

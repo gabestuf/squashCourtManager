@@ -1,6 +1,8 @@
+import "./../css/Queue.css";
+
 const QueueList = (props) => {
   return (
-    <table>
+    <table className="queueListTable">
       <thead>
         <tr>
           <th>#</th>
@@ -12,6 +14,7 @@ const QueueList = (props) => {
           <tr key={index}>
             <td>{index}</td>
             <td>{game.p1}</td>
+            <td>vs</td>
             <td>{game.p2}</td>
           </tr>
         ))}
