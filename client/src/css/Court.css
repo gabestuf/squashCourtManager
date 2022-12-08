@@ -1,0 +1,100 @@
+.court {
+  color: var(--main-text-color);
+  background-color: var(--secondary-bg-color);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  width: 30vw;
+  margin-top: 2rem;
+}
+
+.court input {
+  border: none;
+  border-radius: .3rem;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+
+
+  /* Chat gpt styling */
+  :root {
+    --main-primary-color: #333;
+    --secondary-color: #777;
+  }
+  .court {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 8px;
+    color: white;
+    min-height: 22rem;
+    text-align: center;
+  }
+  
+  .court p {
+    margin: 1rem;
+    padding: 0;
+    font-size: 1rem;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  table {
+    margin: 8px 0;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th,
+  td {
+    text-align: center;
+    padding: 8px;
+  }
+  
+  .td input {
+    width: 40px;
+  }
+  
+  .doneBtn {
+    margin-top: 8px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #ff7171;
+    color: #333;
+    border: none;
+    outline: 3px solid #000;
+    transition: all 0.3s ease;
+  }
+  
+  .doneBtn:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    background: var(--main-primary-color);
+    color: #333;
+    border: none;
+  }
+  
+  .doneBtn:active {
+    transform: translateY(0);
+    box-shadow: none;
+    background: #e97a7a;
+    color: #333;
+    border: none;
+  }
+
+  .courtName {
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+  }

@@ -2,21 +2,25 @@ import Court from "./Court";
 import { Fragment, useState, useEffect } from "react";
 
 const CourtManager = (props) => {
-  const [c1Status, setC1Status] = useState({ busy: false, p1: "Player 1", p2: "Player 2" });
-  const [c2Status, setC2Status] = useState({ busy: false, p1: "Player 1", p2: "Player 2" });
-  const [c3Status, setC3Status] = useState({ busy: false, p1: "Player 1", p2: "Player 2" });
+  const [c1Status, setC1Status] = useState({ busy: false, p1: "Empty", p2: "Empty" });
+  const [c2Status, setC2Status] = useState({ busy: false, p1: "Empty", p2: "Empty" });
+  const [c3Status, setC3Status] = useState({ busy: false, p1: "Empty", p2: "Empty" });
 
   const popQueue = () => {
     if (!props.queue.length) {
       return false;
     }
-    const q = props.queue;
+    const q = [...props.queue];
     const next = q.pop();
+    console.log(q);
     props.setQueue(q);
     return next;
   };
 
-  useEffect(() => {
+  function updateQueue() {
+    if (!props.queue.length) {
+      return;
+    }
     if (!c1Status.busy) {
       const next = popQueue();
 
@@ -43,13 +47,17 @@ const CourtManager = (props) => {
         setC3Status(c3Status);
       }
     }
+  }
+
+  useEffect(() => {
+    updateQueue();
   }, [props.queue, c1Status, c2Status, c3Status]);
 
   return (
     <Fragment>
-      <Court status={c1Status} />
-      <Court status={c2Status} />
-      <Court status={c3Status} />
+      <Court status={c1Status} setStatus={setC1Status} id={1} />
+      <Court status={c2Status} setStatus={setC2Status} id={2} />
+      <Court status={c3Status} setStatus={setC3Status} id={3} />
     </Fragment>
   );
 };

@@ -1,0 +1,21 @@
+.addToQueueForm > label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+.addToQueueForm > input[type="text"] {
+    display: block;
+    width: 25%;
+    height: 32px;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+  .queueListTable {
+    min-width: 20vw;
+    width: 50vw;
+    max-width: 80vw;
+  }
