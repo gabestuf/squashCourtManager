@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Fragment } from "react";
 
 const Court = (props) => {
-  const [data, setData] = useState({ games: 10 });
+  const [data, setData] = useState({ games: 3 });
 
   const onSubmitCourtForm = (e) => {
     e.preventDefault();
