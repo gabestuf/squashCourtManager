@@ -20,3 +20,4 @@ Short Term Goals:
  - Have players be able to submit their games to the database.
  - Logic so unfinished games of a match won't get submitted to a database, ex. Bo3, but only 2 games played. 
  - Match history page, showing a table of previous matchs with scores and winning player highlighted.
+ - Learn how to use markdown files so this doesn't just look like a wall of text.
