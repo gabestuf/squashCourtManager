@@ -11,14 +11,9 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
+
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   font-size: 1.5vw;
   background-color: #fffacd;
 }

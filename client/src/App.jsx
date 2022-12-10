@@ -19,9 +19,7 @@ function App() {
     <Fragment>
       <Header />
       <main>
-        <div className="court-container">
-          <CourtManager queue={queue} setQueue={setQueue} />
-        </div>
+        <CourtManager queue={queue} setQueue={setQueue} />
         <Queue queue={queue} setQueue={setQueue} />
       </main>
       <Description />

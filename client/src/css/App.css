@@ -7,20 +7,12 @@
 }
 
 .link {
-    text-decoration: none;
     border: 2px solid var(--main-bg-color);
 }
 .link:hover {
     cursor: pointer;
-    background-color: antiquewhite;
 }
 
-.court-container {
-    display: flex;
-    flex-direction: row;
-    padding: 1rem;
-    justify-content: space-around;
-}
 
 main {
     display: flex;

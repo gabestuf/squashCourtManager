@@ -1,5 +1,5 @@
 import Court from "./Court";
-import { Fragment, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const CourtManager = (props) => {
   const [c1Status, setC1Status] = useState({ busy: false, p1: "Empty", p2: "Empty" });
@@ -54,11 +54,11 @@ const CourtManager = (props) => {
   }, [props.queue, c1Status, c2Status, c3Status]);
 
   return (
-    <Fragment>
+    <div className="courtContainer">
       <Court status={c1Status} setStatus={setC1Status} id={1} />
       <Court status={c2Status} setStatus={setC2Status} id={2} />
       <Court status={c3Status} setStatus={setC3Status} id={3} />
-    </Fragment>
+    </div>
   );
 };
 
