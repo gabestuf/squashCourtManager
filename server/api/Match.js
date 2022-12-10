@@ -6,8 +6,11 @@ matchRouter.use(express.json())
 const Match = require('./../models/Match')
 
 matchRouter.post('/addMatch', (req, res) => {
-    const { type, games, player1, player2, winner } = req.body
+    const { games, player1, player2 } = req.body
 
+    console.log(games)
+    console.log(player1)
+    console.log(player2)
     if (games.length < 1) {
         res.json({
             status: "FAILED",
@@ -16,11 +19,9 @@ matchRouter.post('/addMatch', (req, res) => {
     }
 
     const newMatch = new Match({
-        type,
         games,
         player1,
-        player2,
-        winner
+        player2
 
     })
 

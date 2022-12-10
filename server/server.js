@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-
+const cors = require('cors')
 
 // middleware
 const MatchRouter = require('./api/Match')
@@ -12,7 +12,7 @@ const connectDB = require("./config/dbConn");
 const bodyParser = require('express').json;
 app.use(bodyParser())
 app.use(express.json())
-
+app.use(cors())
 app.use('/match', MatchRouter)
 
 // INIT
