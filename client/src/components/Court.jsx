@@ -1,16 +1,16 @@
 import "./../css/Court.css";
 import { Fragment } from "react";
 
-const evaluateGames = (gameList) => {
+const evaluateGames = (gameList, winningScore) => {
   let returnedList = [...gameList];
   let msg = "";
   const emptyArr = [];
   for (let gameNum = 0; gameNum < gameList.length; gameNum++) {
-    if (gameList[gameNum].p1 < 11 && gameList[gameNum].p2 < 11) {
+    if (gameList[gameNum].p1 < winningScore && gameList[gameNum].p2 < winningScore) {
       // Make sure at least one player has a winning score
       msg += `No player won game ${gameNum + 1} this game will be erased\n`;
       returnedList.splice(gameNum, 1);
-    } else if (gameList[gameNum].p1 >= 10 && gameList[gameNum].p2 >= 10 && Math.abs(gameList[gameNum].p1 - gameList[gameNum].p2) > 2) {
+    } else if (gameList[gameNum].p1 >= winningScore - 1 && gameList[gameNum].p2 >= winningScore - 1 && Math.abs(gameList[gameNum].p1 - gameList[gameNum].p2) > 2) {
       // Invalid game, greater than 2 points difference
       msg = `Game ${gameNum + 1} has an impossible score and will be erased\n`;
       returnedList.splice(gameNum, 1);
@@ -53,7 +53,9 @@ const Court = (props) => {
     }
 
     // Make sure scores are valid
-    const { msg, returnedList } = evaluateGames(scores);
+    const { msg, returnedList } = evaluateGames(scores, props.status.gameLength);
+
+    console.log(returnedList);
 
     if (confirm(msg)) {
       if (msg == undefined || returnedList.length < 1) return;
@@ -66,7 +68,9 @@ const Court = (props) => {
         body: JSON.stringify({ games: JSON.stringify(returnedList), player1: props.status.p1, player2: props.status.p2 }),
       });
       const responseJSON = await response.json();
-      //console.log(responseJSON);
+
+      // TODO make a more robust message for users
+      console.log(responseJSON.message);
 
       //reset court status
       props.setStatus({ busy: false, p1: "Empty", p2: "Empty", numGames: 0 });
@@ -91,7 +95,7 @@ const Court = (props) => {
           </div>
         ) : (
           <Fragment>
-            <h4>Gamelength: {props.status.gameLength}</h4>
+            <h4>Game to {props.status.gameLength} points</h4>
 
             <form onSubmit={(e) => onSubmitCourtForm(e)}>
               <table>
