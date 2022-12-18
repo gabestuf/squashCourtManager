@@ -1,11 +1,11 @@
 .mainFooter {
-    font-size: .5em;
+    margin-top: 5rem;
+    padding: 6ch 0;
+    font-size: clamp(.6rem, 1.5vw, 1rem);
     color: var(--secondary-bg-color);
-    width: 100%;
     background-color: var(--main-bg-color);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5ch 0;
-    margin-top: 5rem;
 }

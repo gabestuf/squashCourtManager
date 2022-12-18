@@ -8,9 +8,11 @@ _BIG TODO LIST_
 - [x] Have players be able to submit their games to the database. (12/10)
 - [x] Logic so unfinished games of a match won't get submitted to a database, ex. Bo3, but only 2 games played. (12/10)
 - [ ] Match history page, showing a table of previous matchs with scores and winning player highlighted.
-- [ ] Custom Form Components w/ autofill search for name inputs
-- [ ] Long Term - Tournament mode: automatic brackets/ladder, set match length
+- [ ] Custom Form Components w/ auto complete search for name inputs
+- [ ] Long Term - Tournament mode: automatic brackets/ladder
+- [ ] set match length in AddToQueue
 - [ ] add winning score (default 11) option in addToQueue in case people want to play short/long matches
+- [ ] Style AddToQueue form so important stuff is in front and not important stuff is to the side (numGames, gameLength)
 
 **12/9/2022**
 

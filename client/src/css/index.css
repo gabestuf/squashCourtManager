@@ -3,6 +3,11 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+  --main-bg-color: rgb(75,78,81);
+  --secondary-bg-color: rgb(178,183,187);
+  --main-primary-color: rgb(172,43,55);
+  --main-text-color: rgb(31,35,39);
+  --secondary-text-color: #34383b;
 }
 
 * {
@@ -14,6 +19,10 @@
 
 
 body {
-  font-size: 1.5vw;
   background-color: #fffacd;
 }
+
+
+
+
+

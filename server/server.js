@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors')
 
 // middleware
+const UserRouter = require('./api/User')
 const MatchRouter = require('./api/Match')
 const mongoose = require("mongoose");
 mongoose.set('strictQuery', false)
@@ -13,6 +14,11 @@ const bodyParser = require('express').json;
 app.use(bodyParser())
 app.use(express.json())
 app.use(cors())
+
+
+// Users route
+app.use('/user', UserRouter)
+// Match Route
 app.use('/match', MatchRouter)
 
 // INIT

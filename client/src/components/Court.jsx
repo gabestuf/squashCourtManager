@@ -34,6 +34,7 @@ const evaluateGames = (gameList) => {
   return { msg, returnedList };
 };
 
+// COMPONENT
 const Court = (props) => {
   const onSubmitCourtForm = async (e) => {
     e.preventDefault();
@@ -90,6 +91,8 @@ const Court = (props) => {
           </div>
         ) : (
           <Fragment>
+            <h4>Gamelength: {props.status.gameLength}</h4>
+
             <form onSubmit={(e) => onSubmitCourtForm(e)}>
               <table>
                 <thead>

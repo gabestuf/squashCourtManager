@@ -2,9 +2,9 @@ import Court from "./Court";
 import { useState, useEffect } from "react";
 
 const CourtManager = (props) => {
-  const [c1Status, setC1Status] = useState({ busy: false, p1: "Empty", p2: "Empty", numGames: 0 });
-  const [c2Status, setC2Status] = useState({ busy: false, p1: "Empty", p2: "Empty", numGames: 0 });
-  const [c3Status, setC3Status] = useState({ busy: false, p1: "Empty", p2: "Empty", numGames: 0 });
+  const [c1Status, setC1Status] = useState({ busy: false, p1: "Empty", p2: "Empty", numGames: 0, gameLength: 11 });
+  const [c2Status, setC2Status] = useState({ busy: false, p1: "Empty", p2: "Empty", numGames: 0, gameLength: 11 });
+  const [c3Status, setC3Status] = useState({ busy: false, p1: "Empty", p2: "Empty", numGames: 0, gameLength: 11 });
 
   const popQueue = () => {
     if (!props.queue.length) {
@@ -28,6 +28,7 @@ const CourtManager = (props) => {
         c1Status.p1 = next.p1;
         c1Status.p2 = next.p2;
         c1Status.numGames = next.numGames;
+        c1Status.gameLength = next.gameLength;
         setC1Status(c1Status);
       }
     } else if (!c2Status.busy) {
@@ -37,6 +38,7 @@ const CourtManager = (props) => {
         c2Status.p1 = next.p1;
         c2Status.p2 = next.p2;
         c2Status.numGames = next.numGames;
+        c2Status.gameLength = next.gameLength;
         setC2Status(c2Status);
       }
     } else if (!c3Status.busy) {
@@ -46,6 +48,7 @@ const CourtManager = (props) => {
         c3Status.p1 = next.p1;
         c3Status.p2 = next.p2;
         c3Status.numGames = next.numGames;
+        c3Status.gameLength = next.gameLength;
         setC3Status(c3Status);
       }
     }

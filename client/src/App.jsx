@@ -1,30 +1,20 @@
-import { useState, Fragment, useEffect, useRef } from "react";
-import Court from "./components/Court";
-import Queue from "./components/Queue";
-import "./css/App.css";
+import { Fragment } from "react";
+import HomePage from "./HomePage";
+import MatchHistoryPage from "./MatchHistoryPage";
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import CourtManager from "./components/CourtManager";
-import Description from "./components/Description";
-import QueueList from "./components/QueueList";
 
 function App() {
-  const [queue, setQueue] = useState([]);
-
-  // useEffect(() => {
-  //   console.log(queue);
-  // }, [queue]);
-
   return (
-    <Fragment>
+    <div className="content">
       <Header />
-      <main>
-        <CourtManager queue={queue} setQueue={setQueue} />
-        <Queue queue={queue} setQueue={setQueue} />
-      </main>
-      <Description />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/matchhistory" element={<MatchHistoryPage />} />
+      </Routes>
       <Footer />
-    </Fragment>
+    </div>
   );
 }
 

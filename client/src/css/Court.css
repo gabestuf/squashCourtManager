@@ -1,10 +1,5 @@
 
 
-/* Chat gpt styling */
-:root {
-  --main-primary-color: #333;
-  --secondary-color: #777;
-}
 
 
 
@@ -13,7 +8,7 @@
   flex-direction: row;
   padding: 1rem;
   justify-content:space-evenly;
-  max-width: 100vw;
+  max-width: 100%;
 }
 
 .court p {

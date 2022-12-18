@@ -22,7 +22,6 @@ matchRouter.post('/addMatch', (req, res) => {
         games,
         player1,
         player2
-
     })
 
     newMatch.save().then(result => { //saves to database using mongoose
